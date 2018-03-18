@@ -1,44 +1,42 @@
 import sys
 import os
-import re
 import math
 
 # this function might be better off if done recursively
-def find_odd(number):
+def find_even(number):
     presses = 0
 
     # list from most sig to least sig
     digits = [int(d) for d in str(number)]
 
     # iterate from least sig to most sig
-    for i in range(len(digits)-1, -1, -1):
-        if (digits[i] % 2) != 0:
+    for n in range(0, len(digits)):
+        m = len(digits) - n - 1
+
+        if (digits[n] % 2) != 0:
         # odd case
-            if i == len(digits)-1:
-                if digits[i] < 6:
-                    digits[i] -= 1
+            if n < len(digits)-1:
+                if digits[n+1] < 5 or digits[n] == 9:
+                # subtract case
+                    sum = 0
+                    for i in range(n+1, len(digits)):
+                        sum += digits[i] * 10**(len(digits) - i - 1)
+                        digits[i] = 8
+                    powadder = 2
+                    for j in range(1, m):
+                        powadder += 10**j
+                    presses += sum + powadder
+                    digits[n] -= 1
                 else:
-                    digits[i] += 1
-                presses += 1
+                # add case
+                    sum = 0
+                    for i in range(n+1, len(digits)):
+                        sum += digits[i] * 10**(len(digits) - i - 1)
+                        digits[i] = 0
+                    presses += 10**m - sum
+                    digits[n] += 1
             else:
-                if digits[i+1] < 6:
-                    presses += (digits[i+1] + 2)*(10**(len(digits)-2-i))
-
-                    digits[i+1] = 8
-
-                    digits[i] -= 1
-                else:
-                    presses += (10 - digits[i+1])*(10**(len(digits)-2-i))
-
-                    digits[i+1] = 0
-
-                    digits[i] += 1
-
-                if digits[i] > 9:
-                    if i == 0:
-                        digits.insert(0, 1)
-                    digits[i] += 1
-
+                presses += 1
     #return ''.join(map(str, digits))
     return presses
 
@@ -60,7 +58,7 @@ for curr_line in file_lines:
         numbers[counter] = int(curr_line)
     else:
         numbers.append(int(curr_line))
-        numbers[counter] = find_odd(numbers[counter])
+        numbers[counter] = find_even(numbers[counter])
     counter += 1
 
 # write to output file
@@ -71,4 +69,5 @@ for i in range(1, len(numbers)):
     output_file.write(f'{numbers[i]} ')
     output_file.write('\n')
 
-print('Done.')
+print('\n')
+print('Done! Check output.txt for results.')
