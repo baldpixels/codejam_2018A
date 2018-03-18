@@ -1,10 +1,10 @@
 # codejam_2018A
 Google's Code Jam, Kickstart Round A (2018)
 
-__problems to solve...__
-A) [Even Digits](https://codejam.withgoogle.com/codejam/contest/9234486/dashboard#s=p0)
-B) [Lucky Dip](https://codejam.withgoogle.com/codejam/contest/9234486/dashboard#s=p1)
-C) [Scrambled Words](https://codejam.withgoogle.com/codejam/contest/9234486/dashboard#s=p2)
+__problems to solve...__<br />
+A) [Even Digits](https://codejam.withgoogle.com/codejam/contest/9234486/dashboard#s=p0)<br />
+B) [Lucky Dip](https://codejam.withgoogle.com/codejam/contest/9234486/dashboard#s=p1)<br />
+C) [Scrambled Words](https://codejam.withgoogle.com/codejam/contest/9234486/dashboard#s=p2)<br /> 
 
 I'm probably going to write most of this in Python.
 
