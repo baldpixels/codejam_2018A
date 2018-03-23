@@ -54,4 +54,4 @@ prompt
 prompt
 
 # coded by
-Connor Rudmann a.k.a. Vlad Pixels
+Connor Rudmann a.k.a. "Vlad Pixels"
